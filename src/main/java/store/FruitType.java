@@ -1,6 +1,6 @@
 package store;
 
-public enum TypeOfFruit {
+public enum FruitType {
     Cherry,
     Apple,
     Orange,

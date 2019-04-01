@@ -43,7 +43,7 @@ public class TradingStore {
         return listOfAvailableFruits;
     }
 
-    public List<Fruit> getSpoiledFruits(LocalDate date, TypeOfFruit type) {
+    public List<Fruit> getSpoiledFruits(LocalDate date, FruitType type) {
         List<Fruit> listOfSpoiledFruits = fruitList.stream()
                 .filter(fruit -> fruit.getTypeOfFruit().equals(type))
                 .filter(fruit -> isSpoiled(fruit, date))
@@ -51,7 +51,7 @@ public class TradingStore {
         return listOfSpoiledFruits;
     }
 
-    public List<Fruit> getAvailableFruits(LocalDate date, TypeOfFruit type) {
+    public List<Fruit> getAvailableFruits(LocalDate date, FruitType type) {
         List<Fruit> listOfAvailableFruits = fruitList.stream()
                 .filter(fruit -> fruit.getTypeOfFruit().equals(type))
                 .filter(fruit -> !isSpoiled(fruit, date))
@@ -66,7 +66,7 @@ public class TradingStore {
         return listOfAvailableFruits;
     }
 
-    public List<Fruit> getAddedFruits(LocalDate date, TypeOfFruit typeOfFruit) {
+    public List<Fruit> getAddedFruits(LocalDate date, FruitType typeOfFruit) {
         List<Fruit> listOfAvailableFruits = fruitList.stream()
                 .filter(fruit -> fruit.getTypeOfFruit().equals(typeOfFruit) && fruit.getDate().equals(date))
                 .collect(Collectors.toList());
