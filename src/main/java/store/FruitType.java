@@ -1,14 +1,14 @@
 package store;
 
 public enum FruitType {
-    Cherry,
-    Apple,
-    Orange,
-    Lemon,
-    Melon,
-    Watermelon,
-    Pineapple,
-    Grape,
-    Pear,
-    Banana
+    CHERRY,
+    APPLE,
+    ORANGE,
+    LEMON,
+    MELON,
+    WATERMELON,
+    PINEAPPLE,
+    GRAPE,
+    PEAR,
+    BANANA
 }

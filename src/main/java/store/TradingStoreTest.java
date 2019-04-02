@@ -26,12 +26,12 @@ public class TradingStoreTest {
         LocalDate firstDate = LocalDate.of(2019, 3, 25);
         LocalDate secondDate = LocalDate.of(2019, 3, 27);
 
-        firstListOfFruits.add(new Fruit(FruitType.Cherry, 5, firstDate, 85));
-        firstListOfFruits.add(new Fruit(FruitType.Grape, 7, firstDate, 40));
+        firstListOfFruits.add(new Fruit(FruitType.CHERRY, 5, firstDate, 85));
+        firstListOfFruits.add(new Fruit(FruitType.GRAPE, 7, firstDate, 40));
         StoreUtil.writeToFile(firstListOfFruits, FIRST_FILE);
 
-        secondListOfFruits.add(new Fruit(FruitType.Apple, 15, secondDate, 25));
-        secondListOfFruits.add(new Fruit(FruitType.Orange, 5, secondDate, 55));
+        secondListOfFruits.add(new Fruit(FruitType.APPLE, 15, secondDate, 25));
+        secondListOfFruits.add(new Fruit(FruitType.ORANGE, 5, secondDate, 55));
         StoreUtil.writeToFile(secondListOfFruits, SECOND_FILE);
     }
 
@@ -78,7 +78,7 @@ public class TradingStoreTest {
     public void testGetSpoiledFruitsByType() {
         tradeShop.addFruits(FIRST_FILE);
         LocalDate date = LocalDate.of(2019, 4, 1);
-        List<Fruit> spoiledFruits = tradeShop.getSpoiledFruits(date, FruitType.Lemon);
+        List<Fruit> spoiledFruits = tradeShop.getSpoiledFruits(date, FruitType.LEMON);
         assertEquals(1, spoiledFruits.size());
         assertEquals(spoiledFruits.get(0), firstListOfFruits.get(4));
     }
@@ -87,7 +87,7 @@ public class TradingStoreTest {
     public void testGetAvailableFruitsByType() {
         tradeShop.addFruits(FIRST_FILE);
         LocalDate date = LocalDate.of(2019, 4, 1);
-        List<Fruit> availableFruits = tradeShop.getAvailableFruits(date, FruitType.Melon);
+        List<Fruit> availableFruits = tradeShop.getAvailableFruits(date, FruitType.MELON);
         assertEquals(2, availableFruits.size());
         assertEquals(availableFruits.get(0), firstListOfFruits.get(1));
     }
@@ -111,7 +111,7 @@ public class TradingStoreTest {
         tradeShop.addFruits(SECOND_FILE);
         tradeShop.save(DB_FILE);
         LocalDate date = LocalDate.of(2019, 3, 25);
-        List<Fruit> addedFruits = tradeShop.getAddedFruits(date, FruitType.Watermelon);
+        List<Fruit> addedFruits = tradeShop.getAddedFruits(date, FruitType.WATERMELON);
         assertEquals(2, addedFruits.size());
         assertEquals(addedFruits.get(0), firstListOfFruits.get(1));
     }
